@@ -18,7 +18,7 @@ module.exports = function(grunt) {
     },
     watch: {
       jade: {
-        files: ['index.jade'],
+        files: ['index.jade','downloadsPartial.erb'],
         tasks: ['jade:compile'],
         options: {
           livereload: true,
