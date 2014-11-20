@@ -1,0 +1,24 @@
+{
+  "name": "html5-download-page",
+  "version": "0.1.0",
+  "authors": [
+    "plato-cambrian <plato@cambrian.org>"
+  ],
+  "description": "The page where you download sopro",
+  "main": "index.html",
+  "keywords": [
+    "societypro"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/SocietyPro/html5-download-page",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~0.5.1"
+  }
+}

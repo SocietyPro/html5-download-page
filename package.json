@@ -1,0 +1,25 @@
+{
+  "name": "html5-download-page",
+  "version": "0.1.0",
+  "description": "The page where you download sopro",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SocietyPro/html5-download-page.git"
+  },
+  "keywords": [
+    "societypro"
+  ],
+  "author": "Central Services Inc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SocietyPro/html5-download-page/issues"
+  },
+  "homepage": "https://github.com/SocietyPro/html5-download-page",
+  "devDependencies": {
+    "jade": "^1.7.0"
+  }
+}
