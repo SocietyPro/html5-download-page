@@ -1,9 +1,8 @@
 doctype html
 
-- var d1 = { "name":"sopro-0.1.exe", "hash":"abc", "href":"https://download.societypro.org/sopro-0.1.exe" }
-- var d2 = { "name":"sopro-0.2.exe", "hash":"def", "href":"https://download.societypro.org/sopro-0.2.exe" }
-- var d3 = { "name":"sopro-1.0.exe", "hash":"123", "href":"https://download.societypro.org/sopro-1.0.exe" }
-- var downloads = [d1, d2, d3]
+- var d1 = { "name":"<% file.name %>", "hash":"<% file.hash %>", "href":"<% file.download_url %>" }
+
+- var downloads = [d1]
 
 html(ng-app="downloadsModule")
   head
@@ -21,5 +20,5 @@ html(ng-app="downloadsModule")
     md-content(flex)
       each download in downloads
         md-card
-          a(href=download.href) #{download.name}
+          a(href=download.href)!= download.name
           |Hash: #{download.hash} 

@@ -2,6 +2,7 @@
 
 require 'sinatra/base'
 require 'slim'
+Tilt.register Tilt::ERBTemplate, 'html.erb'
 
 class FileUpload < Sinatra::Base
   configure do
@@ -34,8 +35,12 @@ class FileUpload < Sinatra::Base
 
   get '/' do
     @files = Dir.entries(settings.files) - settings.unallowed_paths
-
-    slim :index
+    erb :index
+    #slim :index
+  end
+  
+  get '/upload' do
+    p 'ok'
   end
   
   post '/upload' do

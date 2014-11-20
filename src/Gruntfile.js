@@ -35,7 +35,7 @@ module.exports = function(grunt) {
           runtime: false,
         },
         files: {
-          "../app/views/index.html": ["index.jade"]
+          "../app/views/index.erb": ["index.jade"]
         }        
       },
     },
