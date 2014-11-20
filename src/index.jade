@@ -1,0 +1,25 @@
+doctype html
+
+- var d1 = { "name":"sopro-0.1.exe", "hash":"abc", "href":"https://download.societypro.org/sopro-0.1.exe" }
+- var d2 = { "name":"sopro-0.2.exe", "hash":"def", "href":"https://download.societypro.org/sopro-0.2.exe" }
+- var d3 = { "name":"sopro-1.0.exe", "hash":"123", "href":"https://download.societypro.org/sopro-1.0.exe" }
+- var downloads = [d1, d2, d3]
+
+html(ng-app="downloadsModule")
+  head
+    script(src="bower_components/hammerjs/hammer.min.js", type="text/javascript")
+    script(src="bower_components/angular/angular.min.js", type="text/javascript")
+    script(src="bower_components/angular-animate/angular-animate.min.js", type="text/javascript")
+    script(src="bower_components/angular-aria/angular-aria.min.js", type="text/javascript")
+    script(src="bower_components/angular-material/angular-material.min.js", type="text/javascript")
+    link(href="bower_components/angular-material/angular-material.min.css", rel="stylesheet")
+    link(href="bower_components/angular-material/themes/green-theme.css", rel="stylesheet")
+    link(href="sopro-downloads.css", rel="stylesheet")
+  body(ng-controller="downloadsCtrl", layout-fill, layout="vertical")
+    md-toolbar(md-theme="green") 
+      |download.societypro.org
+    md-content(flex)
+      each download in downloads
+        md-card
+          a(href=download.href) #{download.name}
+          |Hash: #{download.hash} 

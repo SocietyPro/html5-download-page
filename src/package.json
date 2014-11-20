@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/SocietyPro/html5-download-page",
   "devDependencies": {
+    "grunt-contrib-copy": "^0.7.0",
     "jade": "^1.7.0"
   }
 }
