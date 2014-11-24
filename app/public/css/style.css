@@ -1,11 +1,45 @@
 body {
-  background-color: #5CACEE;
+  /* background-color: #5CACEE; */
 }
 
-a {
-  color: white;
+#titlebar{
+  text-align: center;
+  font-family: RobotoSlab, Inconsolata, Fixedsys;
 }
 
-a:hover {
-  color: black;
+#downloadList{
+  width: 100%;
+  padding: 24px;
+  margin: auto;
+  position: relative;
+}
+
+.downloadLink{
+  width: 100%;
+}
+
+.downloadImg{
+  width: 48px;
+  background-size:contain;
+}
+
+.downloadLink[data-platform="windows"] .downloadImg{
+  background-image: url('/images/ic_windows_grey600_24dp.png');
+}
+.downloadLink[data-platform="mac"] .downloadImg{
+  background-image: url('/images/ic_apple_grey600_24dp.png');
+}
+.downloadLink[data-platform="linux"] .downloadImg{
+  background-image: url('/images/ic_laptop_grey600_24dp.png');
+}
+.downloadCard .label{
+  width: 4em;
+  text-align: right;
+  padding-right: 16px;
+}
+
+@media screen and (min-width: 800px){
+  #downloadList{
+    width: 800px;
+  }
 }

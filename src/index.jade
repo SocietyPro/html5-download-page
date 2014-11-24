@@ -7,11 +7,37 @@ html(ng-app="downloadsModule")
     script(src="bower_components/angular-animate/angular-animate.min.js", type="text/javascript")
     script(src="bower_components/angular-aria/angular-aria.min.js", type="text/javascript")
     script(src="bower_components/angular-material/angular-material.min.js", type="text/javascript")
+    script(src="js/sopro-downloads.js", type="text/javascript")
     link(href="bower_components/angular-material/angular-material.min.css", rel="stylesheet")
     link(href="bower_components/angular-material/themes/green-theme.css", rel="stylesheet")
-    link(href="sopro-downloads.css", rel="stylesheet")
+    link(href="css/style.css", rel="stylesheet")
   body(ng-controller="downloadsCtrl", layout-fill, layout="vertical")
-    md-toolbar(md-theme="green") 
-      |download.societypro.org
-    md-content(flex)
-      include downloadsPartial.erb
+    md-toolbar(md-theme="green", layout="horizontal", layout-align="space-around", id="titlebar") 
+      span download.societypro.org
+    md-content#downloadList(flex)
+      //include downloadsPartial.erb
+      p Welcome to the Society Pro download page.
+        | These files are NOT cryptographically verified yet.
+      md-whiteframe.md-whiteframe-z1(layout="vertical")
+        h2 Current Releases
+        md-list
+          - var file1 = {name: "societypro-0.1.7.6.exe", href:"http://foo.bar/baz", hash: "abc123", sizeMb: "56", platform: "windows"}
+          - var file2 = {name: "societypro-0.1.7.6.dmg", href:"http://foo.bar/baz-mac", hash: "123456", sizeMb: "40", platform: "mac"}
+          - var files = [file1, file2]
+          each file in files
+            md-item
+              md-item-content
+                a.downloadLink(href=file.href, data-platform=file.platform)
+                  md-card.downloadCard(layout="horizontal")
+                    span.downloadImg(alt=file.platform)
+                    div(layout="vertical", flex)
+                      div(layout="horizontal")
+                        span.label Name: 
+                        span= file.name
+                      div(layout="horizontal")
+                        span.label Hash: 
+                        span= file.hash
+                      div(layout="horizontal")
+                        span.label Size: 
+                        span= file.sizeMb
+                        span Mb
