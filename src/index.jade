@@ -15,29 +15,32 @@ html(ng-app="downloadsModule")
     md-toolbar(md-theme="green", layout="horizontal", layout-align="space-around", id="titlebar") 
       span download.societypro.org
     md-content#downloadList(flex)
-      //include downloadsPartial.erb
+      
       p Welcome to the Society Pro download page.
         | These files are NOT cryptographically verified yet.
+      //include downloadsPartial.erb
       md-whiteframe.md-whiteframe-z1(layout="vertical")
         h2 Current Releases
         md-list
-          - var file1 = {name: "societypro-0.1.7.6.exe", href:"http://foo.bar/baz", hash: "abc123", sizeMb: "56", platform: "windows"}
-          - var file2 = {name: "societypro-0.1.7.6.dmg", href:"http://foo.bar/baz-mac", hash: "123456", sizeMb: "40", platform: "mac"}
-          - var files = [file1, file2]
+          - var file1 = {name: "<%= #file.name %>", href:"<%= #file.download_url %>", hash: "<%= #file.hash %>", sizeMb: "<%= #file.sizeMb %>", platform: "<%= #file.platform %>", date: "<%= #file.date %>"}
+          //- var file1 = {name: "societypro-0.1.7.6.exe", href:"http://foo.bar/baz", hash: "abc123", sizeMb: "56", platform: "windows", date: new Date("2014-12-23").toString()}
+          - var file2 = {name: "societypro-0.1.7.6.dmg", href:"http://foo.bar/baz-mac", hash: "123456", sizeMb: "40", platform: "mac", date: new Date("2014-12-23").toString()}
+          - var files = [file1]
           each file in files
+            // BEGIN JADE REPEAT BLOCK:
             md-item
               md-item-content
-                a.downloadLink(href=file.href, data-platform=file.platform)
+                a.downloadLink(href!=file.href, data-platform!=file.platform)
                   md-card.downloadCard(layout="horizontal")
-                    span.downloadImg(alt=file.platform)
+                    span.downloadImg(alt!=file.platform)
                     div(layout="vertical", flex)
                       div(layout="horizontal")
                         span.label Name: 
-                        span= file.name
+                        span!= file.name
                       div(layout="horizontal")
                         span.label Hash: 
-                        span= file.hash
+                        span!= file.hash
                       div(layout="horizontal")
                         span.label Size: 
-                        span= file.sizeMb
+                        span!= file.sizeMb
                         span Mb

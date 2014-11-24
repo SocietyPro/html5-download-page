@@ -17,10 +17,16 @@ body {
 .downloadLink{
   width: 100%;
 }
+.downloadCard:hover{
+  box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
+  /* .md-witeframe-z2 */
+}
 
 .downloadImg{
-  width: 48px;
-  background-size:contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 48px auto;
+    width: 48px;
 }
 
 .downloadLink[data-platform="windows"] .downloadImg{
