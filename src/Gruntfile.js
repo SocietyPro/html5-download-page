@@ -18,7 +18,7 @@ module.exports = function(grunt) {
     },
     watch: {
       jade: {
-        files: ['index.jade','downloadsPartial.erb','downloadsPartialTemp.erb'],
+        files: ['index.jade','downloadsPartial.jade'],
         tasks: ['jade:compile'],
         options: {
           livereload: true,
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
           runtime: false,
         },
         files: {
-          "downloadsPartialTemp.erb": ["downloadsPartialTemp.jade"],
+          "downloadsPartial.erb": ["downloadsPartial.jade"],
           "../app/views/index.erb": ["index.jade"],
         }        
       },

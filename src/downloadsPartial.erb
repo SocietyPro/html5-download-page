@@ -1,18 +1,20 @@
-<!-- This jade file, downloadsPartialTemp.jade, is used to generate an ERB fragment, downloadsPartial.erb-->
-<!-- downloadsPartial.erb will be inserted into index.jade later.-->
+
+<!-- Do not edit downloadsPartial.erb -->
+<!-- It is templated from downloadsPartial.jade-->
 <md-whiteframe layout="vertical" class="md-whiteframe-z1">
   <h2>Current Releases</h2>
   <md-list>
     <!-- BEGIN ERB REPEAT BLOCK HERE -->
     <% @files.each do |file| %>
+    <% puts file %>
     <md-item>
-      <md-item-content><a href="<%= #file.download_url %>" data-platform="<%= #file.platform %>" class="downloadLink">
-          <md-card layout="horizontal" class="downloadCard"><span alt="<%= #file.platform %>" class="downloadImg"></span>
+      <md-item-content><a href="<%= file['href'] %>" data-platform="<%= file['platform'] %>" class="downloadLink">
+          <md-card layout="horizontal" class="downloadCard"><span alt="<%= file['platform'] %>" class="downloadImg"></span>
             <div layout="vertical" flex="flex">
-              <div layout="horizontal"><span class="label">Name: </span><span><%= #file.name %></span></div>
-              <div layout="horizontal"><span class="label">Hash: </span><span><%= #file.hash %></span></div>
-              <div layout="horizontal"><span class="label">Date: </span><span><%= #file.date %></span></div>
-              <div layout="horizontal"><span class="label">Size: </span><span><%= #file.sizeMb %></span><span>Mb</span></div>
+              <div layout="horizontal"><span class="label">Name: </span><span><%= file['name'] %></span></div>
+              <div layout="horizontal"><span class="label">Hash: </span><span><%= file['hash'] %></span></div>
+              <div layout="horizontal"><span class="label">Date: </span><span><%= file['date'] %></span></div>
+              <div layout="horizontal"><span class="label">Size: </span><span><%= file['sizeMb'] %></span><span>Mb</span></div>
             </div>
           </md-card></a></md-item-content>
     </md-item> 
