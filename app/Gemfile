@@ -2,3 +2,11 @@ source 'https://rubygems.org'
 
 gem 'sinatra', '~> 1.3'
 gem 'slim', '~> 1.3'
+gem 'json'
+gem 'sandi_meter'
+gem 'rubypath'
+
+
+group :test, :development do
+  gem "rspec"
+end
