@@ -1,5 +1,13 @@
 /*global module:false*/
 module.exports = function(grunt) {
+  myFile = {
+    name: "filename",
+    href:"/releases/filename",
+    hash: "abcd",
+    sizeMb: "100",
+    platform: "windows",
+    date: new Date().toString(),
+  }
 
   // Project configuration.
   grunt.initConfig({
@@ -35,8 +43,8 @@ module.exports = function(grunt) {
           runtime: false,
         },
         files: {
-          "downloadsPartial.erb": ["downloadsPartial.jade"],
-          "../app/views/index.erb": ["index.jade"],
+          //"downloadsPartial.erb": ["downloadsPartial.jade"],
+          "index.lodash.html": ["index.jade"],
         }        
       },
     },
@@ -69,7 +77,7 @@ module.exports = function(grunt) {
               //'bower_components/roboto/**/*',
               //'bower_components/jquery/dist/jquery.min.js',
             ], 
-            dest: '../app/public'
+            dest: '../dist'
           },
 
           // flattens results to a single level
@@ -78,9 +86,21 @@ module.exports = function(grunt) {
       },
       assets: {
         files: [
-          {expand: true, src: ['assets/**'], dest: '../'},
+          {expand: true, src: ['css/**'], dest: '../dist/'},
+          {expand: true, src: ['js/**'], dest: '../dist/'},
+          {expand: true, src: ['images/**'], dest: '../dist/'},
         ],
       },
+    },
+    template: {
+      index:{
+        options: {
+          data: {file: myFile},
+        },
+        files: {
+          "../dist/index.html": ["index.lodash.html"],
+        }    
+      }
     }
 
   });
@@ -91,14 +111,24 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-http-server');
+  grunt.loadNpmTasks('grunt-template');
 
   // Default task.
   grunt.registerTask('default', [
     'bower:install',
     'jade:compile',
     'copy:bower',
+    'copy:assets',
     //'http-server:dev',
     'watch:jade',
   ]);
+
+  grunt.registerTask('release', [
+    'bower:install',
+    'copy:bower',
+    'copy:assets',
+    'jade:compile',
+    'template:index',
+  ])
 };
 
