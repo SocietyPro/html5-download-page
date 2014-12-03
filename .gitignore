@@ -1,6 +1,4 @@
-/src/node_modules/
-/src/bower_components/
-/app/public/files/
-/app/views/index.erb
-
-.c9/
+/app/public/releases/
+/app/Gemfile.lock
+/src/bower_components
+/src/node_modules

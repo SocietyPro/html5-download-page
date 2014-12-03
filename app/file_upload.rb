@@ -69,7 +69,8 @@ class FileUpload < Sinatra::Base
     if params[:file]
       filename = params[:file][:filename]
       file = params[:file][:tempfile]
-
+      puts params.to_s
+      metadata = generate_metadata(params)
       File.open(File.join(settings.files, filename), 'wb') do |f|
         f.write file.read
       end

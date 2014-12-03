@@ -3,7 +3,7 @@
 md-whiteframe.md-whiteframe-z1(layout="vertical")
   h2 Current Releases
   md-list
-    - var file = {name: "<%= file['name'] %>", href:"<%= file['href'] %>", hash: "<%= file['hash'] %>", sizeMb: "<%= file['sizeMb'] %>", platform: "<%= file['platform'] %>", date: "<%= file['date'] %>"}
+    - var file = {name: "<%= file['name'] %>", href:"<%= file['href'] %>", hash: "<%= file['hash_sha256'] %>", sizeMb: "<%= file['sizeMb'] %>", platform: "<%= file['platform'] %>", date: "<%= file['date'] %>"}
       // BEGIN ERB REPEAT BLOCK HERE 
 
       |<% @files.each do |file| %>
