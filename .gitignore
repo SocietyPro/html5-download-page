@@ -2,3 +2,4 @@
 /app/Gemfile.lock
 /src/bower_components
 /src/node_modules
+/dist/

@@ -1,0 +1,51 @@
+body {
+  /* background-color: #5CACEE; */
+}
+
+#titlebar{
+  text-align: center;
+  font-family: RobotoSlab, Inconsolata, Fixedsys;
+}
+
+#downloadList{
+  width: 100%;
+  padding: 24px;
+  margin: auto;
+  position: relative;
+}
+
+.downloadLink{
+  width: 100%;
+}
+.downloadCard:hover{
+  box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
+  /* .md-witeframe-z2 */
+}
+
+.downloadImg{
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 48px auto;
+    width: 48px;
+}
+
+.downloadLink[data-platform="windows"] .downloadImg{
+  background-image: url('/images/ic_windows_grey600_24dp.png');
+}
+.downloadLink[data-platform="mac"] .downloadImg{
+  background-image: url('/images/ic_apple_grey600_24dp.png');
+}
+.downloadLink[data-platform="linux"] .downloadImg{
+  background-image: url('/images/ic_laptop_grey600_24dp.png');
+}
+.downloadCard .label{
+  width: 4em;
+  text-align: right;
+  padding-right: 16px;
+}
+
+@media screen and (min-width: 800px){
+  #downloadList{
+    width: 800px;
+  }
+}
