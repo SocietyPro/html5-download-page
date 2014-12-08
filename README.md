@@ -1,28 +1,19 @@
 html5-download-page
 ===================
+Generate the S3 download page
 
-List the downloads available and their hashes
+This repo is only used to create snapshots of files that need to go in S3 Buckets.
+
+It does NOT involve updating the download page when there is something new to download.
+
+The generated index.html that this repo creates is used as a template in the main Cambrian-src. Specifically, the Gruntfile located at `Cambrian-src/scripts/dist/Gruntfile.js` chooses what files to list on the download page, and generates a new `index.html` based on the templates in `Cambrian-src/scripts/dist/templates`.
+
+To change the appearance of the download page, you should make changes in this repo, and then copy the rendered output to the Cambrian-src templates.
 
 Usage
 -----
 
     git clone https://github.com/SocietyPro/html5-download-page.git
+    cd src
     npm install
-    npm start
-
-grunt-static branch
--------------------
-
-On this branch, there is no dynamic server.
-Instead, we will use Grunt to generate static html content.
-
-The Grunt script looks for releases in `dist/releases`. It expects to find pairs of files and metadata, e.g. `binary.file` and `binary.file.json`.
-
-Additionally, the Grunt script looks at `src/current-releases.json` to know which releases should be displayed on the front page under the "Current" category. This is a list of json metadata file paths relative to the releases folder:
-```
-[
-  "societypro-0.1.7.4.exe.json"
-]
-```
-
-If `current-releases.json` is not found, or contains an empty array, the Grunt script will show all files as Current Releases.
+    grunt
