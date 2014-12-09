@@ -1,0 +1,83 @@
+
+
+.card-container {
+	width: 800px;
+	margin: auto;
+}
+
+.pantheon-logo {
+	text-align: center;
+	margin-top: 20px;	
+	margin-bottom: 40px	
+}
+
+.card-inner {
+	width: 540px; 
+	margin: auto
+}
+
+.roleCard {
+	width: 266px;
+	float: left;
+}
+
+.roleCard .inner-margin {
+	position: relative;	
+	background: #fff;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	border-top: 1px solid #d3d3d3;
+	border-left: 1px solid #d3d3d3;
+	border-right: 1px solid #d3d3d3;
+	border-bottom: 2px solid #d3d3d3;
+	word-break: break-all;
+}
+
+.roleCard a  {
+	text-decoration: none;
+	color: #333
+}
+
+.roleCard img {
+	width: 100%;
+}
+
+.roleCard .roleName {
+	padding: 10px 15px;
+	font-size: 14px;
+}
+
+.roleCard .roleDescription{
+	padding: 0 10px;
+	font-size: 10px;
+	color: #ccc;
+	text-align: center
+}
+
+.roleCard .editBar {
+	position: absolute;
+	bottom: 4px;
+	right: 0;
+	width: 100%;
+	padding: 0 5px 5px 5px;
+}
+
+.overflowMenu {
+	position: absolute;
+	top: inherit;
+	right: -10px;
+	top: 239px;
+	background: rgba(255, 255, 255, 0.8);
+}
+
+.overflowMenu a {
+	font-size: 12px;
+	display: block
+}
+
+.fab {
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	background:#4285f4 !important
+}

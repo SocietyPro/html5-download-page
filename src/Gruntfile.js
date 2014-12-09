@@ -45,6 +45,7 @@ module.exports = function(grunt) {
         files: {
           "../dist/Cambrian-src/scripts/dist/templates/download-partial.html.tpl": ["downloadPartial.jade"],
           "../dist/Cambrian-src/scripts/dist/templates/index.html.tpl": ["index.jade"],
+          "../dist/s3bucket/index.html": ["index.jade"],
         }        
       },
     },
@@ -90,11 +91,9 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', [
-    'bower:install',
     'jade:compile',
     'copy:bower',
-    'copy:assets',
-    'watch:jade',
+    'copy:assets'
   ]);
 };
 

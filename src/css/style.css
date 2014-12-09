@@ -1,51 +1,198 @@
-body {
-  /* background-color: #5CACEE; */
+.content-padding {
+	overflow-y: auto
 }
 
-#titlebar{
-  text-align: center;
-  font-family: RobotoSlab, Inconsolata, Fixedsys;
+.card-container {
+	width: 800px;
+	margin: auto
 }
 
-#downloadList{
-  width: 100%;
-  padding: 24px;
-  margin: auto;
-  position: relative;
+.pantheon-logo {
+	text-align: center;
+	margin-top: 20px;	
+	margin-bottom: 40px	
 }
 
-.downloadLink{
-  width: 100%;
-}
-.downloadCard:hover{
-  box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
-  /* .md-witeframe-z2 */
+.card-inner {
+	width: 540px; 
+	margin: auto
 }
 
-.downloadImg{
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 48px auto;
-    width: 48px;
+.roleCard {
+	width: 266px;
+	float: left;
 }
 
-.downloadLink[data-platform="windows"] .downloadImg{
-  background-image: url('/images/ic_windows_grey600_24dp.png');
-}
-.downloadLink[data-platform="mac"] .downloadImg{
-  background-image: url('/images/ic_apple_grey600_24dp.png');
-}
-.downloadLink[data-platform="linux"] .downloadImg{
-  background-image: url('/images/ic_laptop_grey600_24dp.png');
-}
-.downloadCard .label{
-  width: 4em;
-  text-align: right;
-  padding-right: 16px;
+.roleCard .inner-margin {
+	position: relative;	
+	background: #fff;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	border-top: 1px solid #d3d3d3;
+	border-left: 1px solid #d3d3d3;
+	border-right: 1px solid #d3d3d3;
+	border-bottom: 2px solid #d3d3d3;
+	word-break: break-all;
 }
 
-@media screen and (min-width: 800px){
-  #downloadList{
-    width: 800px;
-  }
+.roleCard a  {
+	text-decoration: none;
+	color: #333
+}
+
+.roleCard img {
+	width: 100%;
+}
+
+.roleCard .roleName {
+	padding: 10px 15px;
+	font-size: 14px;
+}
+
+.roleCard .roleDescription{
+	padding: 0 10px;
+	font-size: 10px;
+	color: #ccc;
+	text-align: center
+}
+
+.roleCard .editBar {
+	position: absolute;
+	bottom: 4px;
+	right: 0;
+	width: 100%;
+	padding: 0 5px 5px 5px;
+}
+
+.overflowMenu {
+	position: absolute;
+	top: inherit;
+	right: -10px;
+	top: 239px;
+	background: rgba(255, 255, 255, 0.8);
+}
+
+.overflowMenu a {
+	font-size: 12px;
+	display: block
+}
+
+.fab {
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	background:#4285f4 !important
+}
+
+.mainContentPolls { 
+	background: url(../assets/images/153450.jpg) top right no-repeat;
+	background-attachment: fixed;
+}
+.mainContentTemplates { 
+	background: #f2f2f2; 
+
+}
+material-card {
+	opacity: 0.9;
+}
+#quickAddTitle {
+	display: inline-block;
+	border-bottom: none;
+	font-size: 14px;
+}
+#quickAddDescription {
+	display: inline-block;
+	border-bottom: none;
+	font-size: 14px;
+}
+#quickAddButton {
+	border: 1px solid darkgray;
+	background-color: gainsboro;
+	color: black;
+	margin-right: 5px;
+}
+#quickStartButton {
+	border: 1px solid darkgray;
+	background-color: gainsboro;
+	color: black;
+	margin-right: 10px;
+}
+.votes {
+  background-color: #a48623;
+  color:white;
+}
+
+.running {
+  background-color: #458B74;
+  color:white;
+}
+
+.completed,
+.voted {
+  background-color: #40505E;
+  color:white;
+}
+
+.unstarted {
+  background-color: #D2D6DF;
+  color:black;
+}
+
+.pantheonToolbar {
+	background-color: #4285f4;
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.25);
+-moz-box-shadow:    0px 2px 5px 0px rgba(50, 50, 50, 0.25);
+box-shadow:         0px 2px 5px 0px rgba(50, 50, 50, 0.25);
+}
+.menu-item {
+	background-color: rgba(255,255,255,0);
+	font-weight: bold;
+}
+material-sidenav {
+	background-color: rgba(0,0,0,0.8);
+}
+
+#dialogLayout {
+	background-color: #D2D6DF;
+}
+g text {
+	fill: #ffffff !important;
+}
+
+#applicationContainer {
+	height: inherit;
+}
+#templateInside {
+	width:	inherit;
+	height: inherit;
+}
+material-tabs .tabs-header .tabs-header-items {
+	background-color: #a48623;	
+}
+material-ink-bar {
+	background: #fff;
+}
+.template {
+	height: 88px;
+}
+material-card {
+	background-color: #33301E;
+	color:white;
+}
+.overflowMenu {
+	color: black;
+}
+#closeButton:hover {
+	background-color: darkgray;
+}
+.addNewPollBtn {
+	background-color: #a48623;
+}
+#optionsMenu {
+  background-color: #D2D6DF; 
+}
+#commentInput {
+	background-color: #8B6D0A;
+	border: 1px solid white;
+	color: white;
 }
