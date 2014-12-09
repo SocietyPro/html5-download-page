@@ -19,6 +19,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular-material": "~0.5.1"
+    "angular-material": "~0.5.1",
+    "roboto": "sopro-components/roboto#0.1.0"
   }
 }

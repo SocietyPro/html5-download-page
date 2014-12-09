@@ -1,9 +1,0 @@
-{
-    "name": "societypro-demo.exe", 
-    "href": "/releases/societypro-demo.exe", 
-    "hash": "abcdeadbeef",
-    "sizeMb": "56", 
-    "platform": "windows", 
-    "date": "Tue Nov 25 2014 20:27:21 GMT-0600 (Central America Standard Time)",
-    "hashSigBase64": "abcd12312309143"
-}

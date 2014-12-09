@@ -26,7 +26,7 @@ module.exports = function(grunt) {
     },
     watch: {
       jade: {
-        files: ['index.jade','downloadsPartial.jade'],
+        files: ['index.jade','downloadPartial.jade'],
         tasks: ['jade:compile'],
         options: {
           livereload: true,
@@ -43,22 +43,10 @@ module.exports = function(grunt) {
           runtime: false,
         },
         files: {
-          //"downloadsPartial.erb": ["downloadsPartial.jade"],
-          "index.lodash.html": ["index.jade"],
+          "../dist/Cambrian-src/scripts/dist/templates/download-partial.html.tpl": ["downloadPartial.jade"],
+          "../dist/Cambrian-src/scripts/dist/templates/index.html.tpl": ["index.jade"],
         }        
       },
-    },
-    'http-server': {
-      'dev': {
-        root: "./", 
-        port: 8080,
-        host: "127.0.0.1",
-        cache: 0,
-        showDir : true,
-        autoIndex: true,
-        ext: "html",
-        runInBackground: true,
-      }
     },
     copy: {
       bower: {
@@ -74,10 +62,10 @@ module.exports = function(grunt) {
               'bower_components/angular-material/angular-material.min.css',
               'bower_components/angular-material/themes/**/*',
               'bower_components/hammerjs/hammer.min.js',
-              //'bower_components/roboto/**/*',
+              'bower_components/roboto/**/*',
               //'bower_components/jquery/dist/jquery.min.js',
             ], 
-            dest: '../dist'
+            dest: '../dist/s3bucket/'
           },
 
           // flattens results to a single level
@@ -86,23 +74,12 @@ module.exports = function(grunt) {
       },
       assets: {
         files: [
-          {expand: true, src: ['css/**'], dest: '../dist/'},
-          {expand: true, src: ['js/**'], dest: '../dist/'},
-          {expand: true, src: ['images/**'], dest: '../dist/'},
+          {expand: true, src: ['css/**'], dest: '../dist/s3bucket/'},
+          {expand: true, src: ['js/**'], dest: '../dist/s3bucket/'},
+          {expand: true, src: ['images/**'], dest: '../dist/s3bucket/'},
         ],
       },
     },
-    template: {
-      index:{
-        options: {
-          data: {file: myFile},
-        },
-        files: {
-          "../dist/index.html": ["index.lodash.html"],
-        }    
-      }
-    }
-
   });
 
   // These plugins provide necessary tasks.
@@ -110,8 +87,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jade');
-  grunt.loadNpmTasks('grunt-http-server');
-  grunt.loadNpmTasks('grunt-template');
 
   // Default task.
   grunt.registerTask('default', [
@@ -119,16 +94,7 @@ module.exports = function(grunt) {
     'jade:compile',
     'copy:bower',
     'copy:assets',
-    //'http-server:dev',
     'watch:jade',
   ]);
-
-  grunt.registerTask('release', [
-    'bower:install',
-    'copy:bower',
-    'copy:assets',
-    'jade:compile',
-    'template:index',
-  ])
 };
 
