@@ -1,14 +1,6 @@
 html5-download-page
 ===================
-Generate the S3 download page
-
-This repo is only used to create snapshots of files that need to go in S3 Buckets.
-
-It does NOT involve updating the download page when there is something new to download.
-
-The generated index.html that this repo creates is used as a template in the main Cambrian-src. Specifically, the Gruntfile located at `Cambrian-src/scripts/dist/Gruntfile.js` chooses what files to list on the download page, and generates a new `index.html` based on the templates in `Cambrian-src/scripts/dist/templates`.
-
-To change the appearance of the download page, you should make changes in this repo, and then copy the rendered output to the Cambrian-src templates.
+This repo contains templates for templates, and a grunt script that generates the static content for the download page. 
 
 Usage
 -----
@@ -17,3 +9,22 @@ Usage
     cd src
     npm install
     grunt
+
+This will generate the html templates and static content into `dist/`.  
+Copy the output into `Cambrian-src/scripts/dist/templates` and Amazon S3 `download.societypro.org` Bucket as appropriate.
+
+Notes
+-----
+
+The output templates are used by the Cambrian-src distribution script to regenerate the download page index.
+
+This repo's grunt script assembles the static content for the download page (like angular, fonts, and images) so it can stay out of Cambrian-src.
+
+New releases
+--------------------
+
+Instead of a separate server hosting a dynamic file list, we re-render the download page whenever there is a new release.
+
+This rendering process happens from the Cambrian-src repo, in `scripts/dist/Gruntfile.js`.
+
+If you want to change how the download page looks, do it here, not in Cambrian-src. Running `grunt` in `html5-download-page/src` should output the correct templates and/or static S3 content to `html5-download-page/dist/`.
